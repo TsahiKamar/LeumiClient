@@ -1,0 +1,31 @@
+
+table {
+    width: 100%;
+}
+
+.mat-row:nth-child(even){
+  background-color:gainsboro;
+  }
+
+.mat-row:nth-child(odd){
+  background-color:slategray;
+  }
+
+  th.mat-header-cell{
+    background-color:darkgray;
+    font-weight: bold;
+  }
+  
+
+
+/* cursor: pointer; */
+/* All table */
+.mat-elevation-z8 td:hover {
+    cursor: pointer;
+  }
+  
+  
+tr.mat-row:hover {
+      background-color:greenyellow;
+      cursor:hand;
+  } 

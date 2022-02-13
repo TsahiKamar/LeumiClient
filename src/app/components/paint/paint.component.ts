@@ -31,10 +31,7 @@ export class PaintComponent implements OnInit {
   }
 
 
-  draw1(x: number, y: number, z: number) {
-    this.ctx.fillRect(z * x, z * y, z, z);
-  }
-
+ 
 drawRectangle (x:number,y:number,width:number,height:number)
 {
   this.ctx.beginPath();
@@ -46,7 +43,7 @@ drawCircle (x:number,y:number,radius:number)
 {
 
   this.ctx.beginPath();
-  this.ctx.arc(x, y, radius, 0, 2 * Math.PI); //100, 75, 50
+  this.ctx.arc(x, y, radius, 0, 2 * Math.PI); 
   this.ctx.stroke();
 }
 
@@ -54,9 +51,9 @@ drawTriangle (x1:number,y1:number,x2:number,y2:number,x3:number,y3:number)
 {
  
     this.ctx.beginPath();
-    this.ctx.moveTo(x1, y1);//75, 50
-    this.ctx.lineTo(x2, y2);//(100, 75)
-    this.ctx.lineTo(x3, y3);//(100, 25)
+    this.ctx.moveTo(x1, y1);
+    this.ctx.lineTo(x2, y2);
+    this.ctx.lineTo(x3, y3);
     this.ctx.fill();
 
 }
@@ -75,10 +72,7 @@ drawTriangle (x1:number,y1:number,x2:number,y2:number,x3:number,y3:number)
 
       break;
     case "Rectangle":
-      this.drawRectangle(shape.xY1.x,shape.xY1.y,shape.xY2.x,shape.xY2.y);//tbc
-
-      this.draw1(shape.xY1.x,shape.xY1.y,shape.xY1.z) ;
-  
+      this.drawRectangle(shape.xY1.x,shape.xY1.y,shape.xY2.x,shape.xY2.y);
 
       break;
     case "Triangle":
@@ -91,17 +85,9 @@ drawTriangle (x1:number,y1:number,x2:number,y2:number,x3:number,y3:number)
   }
 
 
-  async getShape(){
+  getShape(){
 
-    //tr
-  //var result = await this.shapeService.getLastShape(); 
-  //var json = JSON.stringify(result);
-  //alert(json);
-  //let shape = <Shape>JSON.parse(json); 
-  //this.draw(shape.type,shape);
-
-
-   await this.shapeService.getLastShape().subscribe(result => {
+   this.shapeService.getLastShape().subscribe(result => {
      var json = JSON.stringify(result);
      alert(json);
      let shape = <Shape>JSON.parse(json); 
